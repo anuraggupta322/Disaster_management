@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Relief Prediction</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-7">
+            <h1 class="text-left">Disaster Prediction</h1>
+            <p class="text-left">The predicted data may vary a bit as it our <br>prediction has 80-95% accuracy</p>
+          </div>
+          <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="text-left">Disaster Details</h3>
+                </div>
+                <div class="col-md-6">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </div>
+              </div>
+              <hr>
+              <form action = "http://localhost:5000/result" method = "POST"><b>
+
+                <div class="row">
+                   <label class="label col-md-2 control-label">Alert</label>
+                     <div class="col-md-10">
+                       <input type="radio" name="options1" id="option1" value="0" required> Red </input>
+                       <input type="radio" name="options1" id="option2" value="1"> Orange </input>
+                  		 <input type="radio" name="options1" id="option3" value="2"> Yellow </input>
+                     </div>
+                </div>
+                <div class="row">
+                   <label class="label col-md-2 control-label">Windspeed</label>
+                     <div class="col-md-10">
+                        <input type = "number" class="form-control" name = "windspeed" required>
+                     </div>
+                </div>
+                <div class="row">
+                   <label class="label col-md-2 control-label">Rainfall</label>
+                     <div class="col-md-10">
+                        <input type = "number" class="form-control" name = "rainfall" required>
+                     </div>
+                </div>
+                <div class="row">
+                   <label class="label col-md-2 control-label">Near Sea:</label>
+                     <div class="col-md-10">
+                        <input type="radio" name="options" id="option1" value="0" required> Yes </input>
+                        <input type="radio" name="options" id="option2" value="1"> No </input>
+                     </div>
+                </div>
+                <div class="row">
+                   <label class="label col-md-2 control-label">Near River: </label>
+                      <div class="col-md-10">
+                         <input type="radio"  name="options2" id="option1" value="0" required> Yes </input>
+                         <input type="radio"  name="options2" id="option2" value="1"> No </input>
+                     </div>
+                </div>
+                <div class="row">
+                   <label class="label col-md-2 control-label">Development: </label>
+                     <div class="col-md-10">
+                        <input type="radio" name="options3" id="option1" value="0" required> Fully </input>
+                         <input type="radio" name="options3" id="option2" value="1"> Semi </input>
+                         <input type="radio" name="options3" id="option3" value="2"> Under </input>
+                     </div>
+                </div>
+                <div class="row">
+                   <label class="label col-md-2 control-label">Disaster: </label>
+                     <div class="col-md-10">
+                        <input type="radio" name="options4" id="option1" value="0" required> Cyclone </input>
+                         <input type="radio" name="options4" id="option2" value="1"> Flood </input>
+                     </div>
+                </div>
+                </b>
+                <p ><input type = "submit" class="kl" value = "Submit" /></p>
+                </form>
+          	  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                      <ul class=flashes>
+                      {% for message in messages %}
+                          {{ message }}
+                      {% endfor %}
+                      </ul>
+                  {% endif %}
+              {% endwith %}
+
+              </div>
+          </div>
+
+      </div>
+
+    </div>
+  </body>
+</html>
